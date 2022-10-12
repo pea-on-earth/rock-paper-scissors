@@ -5,32 +5,32 @@ function getComputerChoice () {
 }
 console.log(getComputerChoice());
 
-let playerSelection = "Rock";
-console.log(playerSelection);
-
-let computerSelection = getComputerChoice();
-console.log(playRound());
-
-function playRound(playerSelection, computerSelection){
-    //case insensitive
+function playRound(playerSelection){
+    /* case insensitive
     computerSelection = getComputerChoice().toLowerCase();
-    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase(); */
 
-    if (playerSelection === computerSelection){
+    playerSelection = "Rock";
+    console.log(playerSelection);
+
+    let computerSelection = getComputerChoice();
+    console.log(computerSelection);
+
+    if ((playerSelection == computerSelection)){
         //tie
-         return alert(`It's a tie!`);
+        return alert(`It's a tie!`);
     } else if (
         //player wins
-        playerSelection === "Rock" || 
-        computerSelection === "Scissors";
+        (playerSelection == "Rock" && computerSelection == "Scissors") 
     ) {
-         alert(`Player wins!`);
-    } else (
+        return alert(`Player wins!`);
+    } else {
         //computer wins
-        playerSelection = "Rock" && computerSelection = "Paper";
-    ) {
-       alert (`Computer wins!`);
+        return alert (`Computer wins!`);
+    }
     };
 
-}
+    playRound();
+
+
 
