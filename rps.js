@@ -3,7 +3,9 @@ const myArray = ["Rock","Paper","Scissors"];
 function getComputerChoice () {
     return myArray[Math.floor(Math.random() * myArray.length)];
 }
-console.log(getComputerChoice());
+
+let playerScore = 0;
+let computerScore = 0;
 
 function playRound(playerSelection){
     /* case insensitive
@@ -18,19 +20,34 @@ function playRound(playerSelection){
 
     if ((playerSelection == computerSelection)){
         //tie
-        return alert(`It's a tie!`);
+        alert(`It's a tie!`);
     } else if (
-        //player wins
         (playerSelection == "Rock" && computerSelection == "Scissors") 
     ) {
-        return alert(`Player wins!`);
+        //player wins
+        
+        alert(`Player wins!`);
+        playerScore += 1;
+        console.log(`The player has ${playerScore} point(s).`);
+
+
     } else {
         //computer wins
-        return alert (`Computer wins!`);
+        
+        alert (`Computer wins!`);
+        computerScore += 1;
+        console.log(`The computer has ${computerScore} point(s).`);
+        
     }
     };
+    
+    function game() {
+        for (let playerScore = 0; playerScore <= 5; playerScore++) {
+            playRound();
+        }
+    };
 
-    playRound();
+    game();
 
 
 
