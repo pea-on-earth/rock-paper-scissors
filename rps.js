@@ -1,28 +1,30 @@
-const myArray = ["Rock","Paper","Scissors"];
 
-function getComputerChoice () {
-    return myArray[Math.floor(Math.random() * myArray.length)];
-}
 
 let playerScore = 0;
 let computerScore = 0;
 
-function playRound(playerSelection){
-    /* case insensitive
-    computerSelection = getComputerChoice().toLowerCase();
-    playerSelection = playerSelection.toLowerCase(); */
+function playRound(){
 
-    playerSelection = "Rock";
+    let playerInput = prompt("Rock, Paper, or Scissors?", " ");
+    let playerSelection = playerInput.toLowerCase();
     console.log(playerSelection);
+
+    const myArray = ["rock","paper","scissors"];
+
+    function getComputerChoice () {
+    return myArray[Math.floor(Math.random() * myArray.length)];
+    }
 
     let computerSelection = getComputerChoice();
     console.log(computerSelection);
 
-    if ((playerSelection == computerSelection)){
+    if ((playerSelection === computerSelection)){
         //tie
         alert(`It's a tie!`);
     } else if (
-        (playerSelection == "Rock" && computerSelection == "Scissors") 
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
     ) {
         //player wins
         
@@ -47,7 +49,7 @@ function playRound(playerSelection){
         }
     };
 
-    game();
+    game(); 
 
 
 
