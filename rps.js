@@ -22,7 +22,7 @@ function playRound(){
 
     if (playerSelection == computerSelection){
         //tie
-       alert(`It's a tie!`);
+       return (`It's a tie!`);
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "paper" && computerSelection === "rock") ||
@@ -30,10 +30,12 @@ function playRound(){
     ) {
         //player wins
         playerScore += 1;
+        console.log(playerScore);
         return (`Player wins! The player has ${playerScore} point(s).`);
     } else {
         //computer wins
         computerScore += 1;
+        console.log(computerScore);
         return (`Computer wins! The computer has ${computerScore} point(s).`);
     }
     };
