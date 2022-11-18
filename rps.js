@@ -38,9 +38,9 @@ function playRound(){
         console.log(computerScore);
         return (`Computer wins! The computer has ${computerScore} point(s).`);
     }
-    };
+};
 
-    function game() {
+/*function game() {
         for (let rounds = 0; (playerScore < 5) && (computerScore < 5); rounds ++) {
             alert(playRound());
         }
@@ -51,9 +51,9 @@ function playRound(){
         } else {
             alert("What have you done??")
         }
-    };
+ };    
 
-     game(); 
+     game(); */
 
 
 
