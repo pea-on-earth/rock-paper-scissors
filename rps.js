@@ -1,7 +1,8 @@
 let playerScore = 0;
 let computerScore = 0;
+const buttons = document.querySelectorAll('button');
 
-//computer choice
+//computer choice function
 function getComputerChoice () {
     const myArray = ["rock","paper","scissors"];
     return myArray[Math.floor(Math.random() * myArray.length)];
@@ -13,6 +14,13 @@ function getComputerChoice () {
     return playerChoice;
 };*/
 
+//disable buttons (from benfowler04)
+function disableButtons() {
+    buttons.forEach(elem =>{
+        elem.disabled = true;
+    })
+};
+
 
 //rock paper scissors function
 function playRound(playerSelection){
@@ -20,8 +28,6 @@ function playRound(playerSelection){
     let computerSelection = getComputerChoice();
     console.log(computerSelection);
     
-    //let playerSelection = playerInput();
-
     let result = '';
 
     if (playerSelection == computerSelection){
@@ -35,19 +41,22 @@ function playRound(playerSelection){
         //player wins
         playerScore += 1;
         console.log(playerScore);
-        result += (`Player wins! The player has ${playerScore} point(s).`);
+        result += (`${playerSelection} beats ${computerSelection}! The player has ${playerScore} point(s).`);
             if (playerScore === 5) {
-                result = (`Player has ${playerScore} points. Player beat the computer!`);
+                result = (`Player has ${playerScore} points. Player beat the computer! Reload the page to play again`);
+                disableButtons();
             }
     } else {
         //computer wins
         computerScore += 1;
         console.log(computerScore);
-        result += (`Computer wins! The computer has ${computerScore} point(s).`);
+        result += (`${computerSelection} beats ${playerSelection}! The computer has ${computerScore} point(s).`);
             if (computerScore === 5){
-                result = (`Computer has ${computerScore} points. Computer beat the player!`);
+                result = (`Computer has ${computerScore} points. Computer beat the player! Reload the page to play again`);
+                disableButtons();
             }
     }
+
     document.getElementById('result').innerHTML = result;
     document.getElementById('scores').innerHTML = `Player: ${playerScore} - Computer: ${computerScore}`;
     return
