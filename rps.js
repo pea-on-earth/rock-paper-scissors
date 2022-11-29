@@ -2,27 +2,31 @@ let playerScore = 0;
 let computerScore = 0;
 
 //computer choice
-const myArray = ["rock","paper","scissors"];
-
 function getComputerChoice () {
-return myArray[Math.floor(Math.random() * myArray.length)];
+    const myArray = ["rock","paper","scissors"];
+    return myArray[Math.floor(Math.random() * myArray.length)];
 }
 
-//rock paper scissors function
-function playRound(){
-    
-    //computer choice
-    const computerSelection = getComputerChoice();
-    console.log(computerSelection);
+//player choice
+/*function playerInput() {
+    let playerChoice = prompt("Rock, Paper, or Scissors?", " ").toLowerCase();
+    return playerChoice;
+};*/
 
-    //player choice
-    let playerInput = prompt("Rock, Paper, or Scissors?", " ");
-    const playerSelection = playerInput.toLowerCase();
-    console.log(playerSelection);
+
+//rock paper scissors function
+function playRound(playerSelection){
+    //computer choice
+    let computerSelection = getComputerChoice();
+    console.log(computerSelection);
+    
+    //let playerSelection = playerInput();
+
+    let result = '';
 
     if (playerSelection == computerSelection){
         //tie
-       return (`It's a tie!`);
+       result += (`It's a tie! The score is ${playerScore} to ${computerScore}`);
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "paper" && computerSelection === "rock") ||
@@ -31,18 +35,38 @@ function playRound(){
         //player wins
         playerScore += 1;
         console.log(playerScore);
-        return (`Player wins! The player has ${playerScore} point(s).`);
+        result += (`Player wins! The player has ${playerScore} point(s).`);
     } else {
         //computer wins
         computerScore += 1;
         console.log(computerScore);
-        return (`Computer wins! The computer has ${computerScore} point(s).`);
+        result += (`Computer wins! The computer has ${computerScore} point(s).`);
     }
+    document.getElementById('result').innerHTML = result;
+    return
 };
 
-/*function game() {
+//button zone
+const rockBtn = document.getElementById('rock');
+rockBtn.addEventListener('click', () => {
+    playRound('rock');
+});
+
+const paperBtn = document.getElementById('paper');
+paperBtn.addEventListener('click', () => {
+    playRound('paper');
+});
+
+const scissorsBtn = document.getElementById('scissors');
+scissorsBtn.addEventListener('click', () => {
+    playRound('scissors');
+});
+
+
+/*
+function game() {
         for (let rounds = 0; (playerScore < 5) && (computerScore < 5); rounds ++) {
-            alert(playRound());
+            playRound();
         }
         if (playerScore === 5){
             alert("Player beat the computer!");
@@ -53,7 +77,7 @@ function playRound(){
         }
  };    
 
-     game(); */
+game();*/
 
 
 
