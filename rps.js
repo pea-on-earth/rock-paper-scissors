@@ -41,7 +41,7 @@ function playRound(playerSelection){
         //player wins
         playerScore += 1;
         console.log(playerScore);
-        result += (`${playerSelection} beats ${computerSelection}! The player has ${playerScore} point(s).`);
+        result += (`Player wins! ${playerSelection} beats ${computerSelection}! The player has ${playerScore} point(s).`);
             if (playerScore === 5) {
                 result = (`Player has ${playerScore} points. Player beat the computer! Reload the page to play again`);
                 disableButtons();
@@ -50,7 +50,7 @@ function playRound(playerSelection){
         //computer wins
         computerScore += 1;
         console.log(computerScore);
-        result += (`${computerSelection} beats ${playerSelection}! The computer has ${computerScore} point(s).`);
+        result += (`Computer wins! ${computerSelection} beats ${playerSelection}! The computer has ${computerScore} point(s).`);
             if (computerScore === 5){
                 result = (`Computer has ${computerScore} points. Computer beat the player! Reload the page to play again`);
                 disableButtons();
