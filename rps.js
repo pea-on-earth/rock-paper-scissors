@@ -36,13 +36,20 @@ function playRound(playerSelection){
         playerScore += 1;
         console.log(playerScore);
         result += (`Player wins! The player has ${playerScore} point(s).`);
+            if (playerScore === 5) {
+                result = (`Player has ${playerScore} points. Player beat the computer!`);
+            }
     } else {
         //computer wins
         computerScore += 1;
         console.log(computerScore);
         result += (`Computer wins! The computer has ${computerScore} point(s).`);
+            if (computerScore === 5){
+                result = (`Computer has ${computerScore} points. Computer beat the player!`);
+            }
     }
     document.getElementById('result').innerHTML = result;
+    document.getElementById('scores').innerHTML = `Player: ${playerScore} - Computer: ${computerScore}`;
     return
 };
 
